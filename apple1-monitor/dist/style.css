@@ -140,6 +140,17 @@ body {
     transform: scale(0.97);
 }
 
+#btn-reset {
+    border-color: #663333;
+    color: #cc8888;
+}
+
+#btn-reset:hover {
+    background: #3a2020;
+    border-color: #884444;
+    color: #ffaaaa;
+}
+
 /* Dropdown */
 .dropdown {
     position: relative;

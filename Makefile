@@ -59,4 +59,7 @@ install: $(TARGET)
 	mkdir -p ~/.apple1emu/roms ~/.apple1emu/tapes ~/.apple1emu/disks ~/.apple1emu/snapshots ~/.apple1emu/logs
 	cp $(TARGET) /usr/local/bin/
 
-.PHONY: all debug test test_cpu test_integration test_basic test_e2e clean install
+installer:
+	@./tools/create-installer.sh
+
+.PHONY: all debug test test_cpu test_integration test_basic test_e2e clean install installer

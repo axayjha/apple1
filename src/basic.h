@@ -53,6 +53,9 @@ void basic_step(void);
 /* Handle Ctrl+C break - stops program execution, returns to prompt. */
 void basic_break(void);
 
+/* Deactivate BASIC and return to monitor (called on system reset). */
+void basic_deactivate(void);
+
 /* Feed a character to the BASIC interpreter's input buffer. */
 void basic_input_char(uint8_t ch);
 

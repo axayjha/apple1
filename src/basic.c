@@ -411,6 +411,15 @@ void basic_break(void)
     }
 }
 
+void basic_deactivate(void)
+{
+    basic.state = STATE_INACTIVE;
+    basic.input_count = 0;
+    basic.input_head = 0;
+    basic.input_tail = 0;
+    LOG_INFO(LOG_COMP_EMU, "BASIC deactivated (reset to monitor)");
+}
+
 void basic_input_char(uint8_t ch)
 {
     if (basic.input_count < INPUT_BUF_SIZE) {

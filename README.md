@@ -244,6 +244,7 @@ The `apple1-monitor/` subfolder contains a native macOS desktop app built with T
 - Apple Monitor II bezel styling with rainbow Apple logo
 - One-click program loading from the PROGRAMS menu
 - BASIC button to instantly enter BASIC mode
+- RESET button to return to Woz Monitor from any state
 - About dialog with original Apple Computer Co. Newton logo
 
 ### Build from source
@@ -258,9 +259,9 @@ cargo build --release
 ### Create DMG
 
 ```bash
-cd apple1-monitor/src-tauri
-cargo build --release
-hdiutil create -volname "Apple 1 Monitor" -srcfolder target/release/apple1-monitor -ov -format UDZO ../../Apple1Monitor.dmg
+make installer
+# or manually:
+./tools/create-installer.sh
 ```
 
 ## Documentation

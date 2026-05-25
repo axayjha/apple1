@@ -10,6 +10,9 @@ tests/test_e2e
 apple1-monitor/src-tauri/target/
 apple1-monitor/node_modules/
 
+# Installer build directory
+build/
+
 # DMG (release artifact, not source)
 *.dmg
 

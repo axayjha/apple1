@@ -29,6 +29,7 @@ extern "C" {
     fn basic_step();
     fn basic_input_char(ch: u8);
     fn basic_break();
+    fn basic_deactivate();
 
     // aci.h
     fn aci_init();
@@ -194,6 +195,7 @@ impl Emulator {
 
     pub fn reset(&mut self) {
         unsafe {
+            basic_deactivate();
             cpu_reset(&mut self.cpu);
         }
     }

@@ -384,6 +384,7 @@ static void handle_event(key_event_t ev)
 
     case KEY_RESET:
         LOG_INFO(LOG_COMP_EMU, "Warm reset");
+        basic_deactivate();
         cpu_reset(&cpu);
         break;
 

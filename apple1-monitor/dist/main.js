@@ -62,6 +62,11 @@ async function initUI() {
         }
     });
 
+    // Reset button
+    document.getElementById('btn-reset').addEventListener('click', async () => {
+        await invoke('reset');
+    });
+
     // About button
     document.getElementById('btn-about').addEventListener('click', () => {
         document.getElementById('about-modal').classList.remove('hidden');
