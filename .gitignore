@@ -1,0 +1,24 @@
+# Build artifacts
+*.o
+apple1emu
+tests/test_cpu
+tests/test_integration
+tests/test_basic
+tests/test_e2e
+
+# Claude/development files
+.claude/
+SPEC.md
+CLAUDE.md
+progress.md
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Editor
+*.swp
+*.swo
+*~
