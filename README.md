@@ -1,8 +1,49 @@
 # Apple 1 Emulator
 
-A faithful terminal-based emulator of the 1976 Apple 1 computer — the first Apple product, designed by Steve Wozniak. Features the MOS 6502 CPU, original Woz Monitor ROM, Integer BASIC, and the iconic green phosphor glow of an Apple Monitor II.
+A faithful emulator of the 1976 Apple 1 computer — the first Apple product, designed by Steve Wozniak. Features the MOS 6502 CPU, original Woz Monitor ROM, Integer BASIC, and the iconic green phosphor glow of an Apple Monitor II.
 
-![C](https://img.shields.io/badge/language-C17-blue) ![Platform](https://img.shields.io/badge/platform-macOS-lightgrey) ![Tests](https://img.shields.io/badge/tests-220%20passing-brightgreen)
+Available as both a **terminal app** (ncurses) and a **native desktop app** (Tauri) with CRT shader effects.
+
+![C](https://img.shields.io/badge/language-C17-blue) ![Rust](https://img.shields.io/badge/desktop-Tauri-orange) ![Platform](https://img.shields.io/badge/platform-macOS-lightgrey) ![Tests](https://img.shields.io/badge/tests-220%20passing-brightgreen)
+
+## Screenshots
+
+![Apple 1 Monitor App](screenshots/apple1_scr0.png)
+
+![BASIC Programming](screenshots/apple1_scr1.png)
+
+![Woz Monitor](screenshots/apple1_scr2.png)
+
+## Download (Desktop App)
+
+**[Download Apple1Monitor.dmg](https://github.com/axayjha/apple1/releases/latest/download/Apple1Monitor.dmg)** (4 MB, macOS ARM64)
+
+### Install
+
+1. Download `Apple1Monitor.dmg`
+2. Open the DMG and drag "Apple 1 Monitor" to your Applications folder (or run from anywhere)
+3. On first launch, macOS will block it (unsigned app). Fix with:
+
+```bash
+xattr -cr "/path/to/Apple 1 Monitor"
+```
+
+Or if you placed it in Applications:
+
+```bash
+xattr -cr "/Applications/Apple 1 Monitor.app"
+```
+
+For the raw binary (no .app bundle):
+
+```bash
+xattr -cr ~/Downloads/Apple1Monitor.dmg
+# then open the DMG and run the binary
+chmod +x "Apple 1 Monitor"
+xattr -d com.apple.quarantine "Apple 1 Monitor"
+```
+
+4. Double-click to run. You'll see the green phosphor CRT with the `\` Woz Monitor prompt.
 
 ## Features
 
@@ -193,6 +234,33 @@ Runs 220 automated tests:
 │   └── main.c            Entry point and emulation loop
 ├── tests/                4 test programs (220 assertions)
 └── demos/                15 BASIC programs
+```
+
+## Desktop App (Apple 1 Monitor)
+
+The `apple1-monitor/` subfolder contains a native macOS desktop app built with Tauri (Rust + Web):
+
+- CRT phosphor rendering with green glow, scanlines, and vignette
+- Apple Monitor II bezel styling with rainbow Apple logo
+- One-click program loading from the PROGRAMS menu
+- BASIC button to instantly enter BASIC mode
+- About dialog with original Apple Computer Co. Newton logo
+
+### Build from source
+
+```bash
+# Requires: Rust, Node.js
+cd apple1-monitor/src-tauri
+cargo build --release
+./target/release/apple1-monitor
+```
+
+### Create DMG
+
+```bash
+cd apple1-monitor/src-tauri
+cargo build --release
+hdiutil create -volname "Apple 1 Monitor" -srcfolder target/release/apple1-monitor -ov -format UDZO ../../Apple1Monitor.dmg
 ```
 
 ## Documentation

@@ -6,6 +6,13 @@ tests/test_integration
 tests/test_basic
 tests/test_e2e
 
+# Tauri/Rust build
+apple1-monitor/src-tauri/target/
+apple1-monitor/node_modules/
+
+# DMG (release artifact, not source)
+*.dmg
+
 # Claude/development files
 .claude/
 SPEC.md

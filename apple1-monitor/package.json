@@ -1,0 +1,17 @@
+{
+  "name": "apple1-monitor",
+  "version": "1.0.0",
+  "description": "Apple 1 emulator desktop app with CRT display",
+  "scripts": {
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build"
+  },
+  "keywords": ["apple1", "emulator", "6502", "retro"],
+  "author": "Akshay Anand",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.11.2"
+  }
+}
